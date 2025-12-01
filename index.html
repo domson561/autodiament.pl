@@ -206,6 +206,10 @@
                             <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-xl border border-gray-700 overflow-hidden z-50">
+                            <button onclick="restoreOriginalLanguage()" class="w-full flex items-center space-x-3 px-4 py-3 hover:bg-gray-700 transition-colors text-left">
+                                <span class="text-xl">🇵🇱</span>
+                                <span class="text-white font-medium">Polski</span>
+                            </button>
                             <a href="https://autodiament.com/" class="flex items-center space-x-3 px-4 py-3 hover:bg-gray-700 transition-colors">
                                 <span class="text-xl">🇩🇪</span>
                                 <span class="text-white font-medium">Deutsch</span>
@@ -248,7 +252,11 @@
                         <i class="fas fa-phone mr-2"></i><span data-ru="nav-call">Zadzwoń</span>
                     </a>
                     
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 flex-wrap">
+                        <button onclick="restoreOriginalLanguage()" class="flex-1 flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-3 rounded-lg">
+                            <span class="text-lg">🇵🇱</span>
+                            <span class="text-sm">Polski</span>
+                        </button>
                         <a href="https://autodiament.com/" class="flex-1 flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-3 rounded-lg">
                             <span class="text-lg">🇩🇪</span>
                             <span class="text-sm">Deutsch</span>

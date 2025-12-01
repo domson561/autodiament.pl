@@ -223,7 +223,8 @@ function switchToRussian() {
 
 // Funkcja do przywrócenia oryginalnego języka (PL lub DE)
 function restoreOriginalLanguage() {
-    location.reload(); // Najprostsza metoda - przeładuj stronę
+    localStorage.removeItem('language'); // Usuń preferencję języka
+    location.reload(); // Przeładuj stronę
 }
 
 // Export dla użycia w innych plikach
