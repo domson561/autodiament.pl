@@ -169,6 +169,8 @@ const translations = {
         // Map Section
         'contact-map-title': 'Как добраться до автосервиса Autodiament?',
         'contact-map-directions': 'Из Берлина: 1,5ч езды • От границы в Кольбасково: 15 минут',
+        'contact-map-open': 'Открыть в Google Maps',
+        'contact-map-open-new': 'Открыть в новой вкладке',
         
         // Footer
         'footer-description': 'Комплексный кузовной ремонт и покраска в Щецине с 2004 года. Обслуживаем польских и немецких клиентов. Работаем со всеми страховыми компаниями.',

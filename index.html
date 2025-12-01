@@ -943,7 +943,20 @@
             <!-- Mapa -->
             <div class="mt-16 max-w-6xl mx-auto" data-aos="fade-up">
                 <h3 class="text-2xl font-bold text-white text-center mb-8" data-ru="contact-map-title">Jak dojechać do warsztatu Autodiament?</h3>
-                <div class="rounded-2xl overflow-hidden shadow-2xl h-96">
+                
+                <!-- Przycisk do Google Maps (widoczny na mobile) -->
+                <div class="md:hidden mb-4">
+                    <a href="https://maps.google.com/?q=Długa+23a,+72-006+Mierzyn,+Poland" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="flex items-center justify-center space-x-3 bg-red-600 hover:bg-red-700 text-white px-6 py-4 rounded-xl font-semibold transition-all w-full">
+                        <i class="fas fa-map-marked-alt text-xl"></i>
+                        <span data-ru="contact-map-open">Otwórz w Google Maps</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa iframe (ukryta na bardzo małych ekranach, widoczna od sm) -->
+                <div class="rounded-2xl overflow-hidden shadow-2xl h-64 sm:h-96">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2375.4789!2d14.5529!3d53.4289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47aa086a1f8b7b45%3A0x1234567890abcdef!2sD%C5%82uga%2023a%2C%2072-006%20Mierzyn!5e0!3m2!1spl!2spl!4v1234567890123"
                         width="100%" 
@@ -955,6 +968,18 @@
                         title="Mapa lokalizacji warsztatu Autodiament w Mierzynie">
                     </iframe>
                 </div>
+                
+                <!-- Przycisk pod mapą (widoczny na desktop) -->
+                <div class="hidden md:block text-center mt-4">
+                    <a href="https://maps.google.com/?q=Długa+23a,+72-006+Mierzyn,+Poland" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center space-x-2 text-red-500 hover:text-red-400 transition-colors">
+                        <i class="fas fa-external-link-alt"></i>
+                        <span data-ru="contact-map-open-new">Otwórz w nowej karcie</span>
+                    </a>
+                </div>
+                
                 <p class="text-gray-400 text-center mt-4" data-ru="contact-map-directions">
                     <i class="fas fa-route text-red-600 mr-2"></i>
                     Z Berlina: 1,5h jazdy • Z granicy w Kolbaskowie: 15 minut
