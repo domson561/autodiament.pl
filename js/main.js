@@ -4,9 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
+    console.log('Mobile menu button:', mobileMenuButton);
+    console.log('Mobile menu:', mobileMenu);
+
     if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener('click', () => {
+            console.log('Hamburger clicked!');
             mobileMenu.classList.toggle('hidden');
+            console.log('Menu classes after toggle:', mobileMenu.className);
         });
 
         // Close mobile menu when clicking on a link
@@ -16,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileMenu.classList.add('hidden');
             });
         });
+    } else {
+        console.error('Mobile menu elements not found!');
     }
 
     // Smooth Scroll
@@ -62,6 +69,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 navbar.classList.add('shadow-2xl');
             } else {
                 navbar.classList.remove('shadow-2xl');
+            }
+        });
+    }
+
+    // Language Dropdown Toggle
+    const langDropdownBtn = document.getElementById('lang-dropdown-btn');
+    const langDropdown = document.getElementById('lang-dropdown');
+
+    if (langDropdownBtn && langDropdown) {
+        langDropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langDropdownBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+                langDropdown.classList.add('hidden');
             }
         });
     }

@@ -189,25 +189,35 @@
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#o-nas" class="text-gray-300 hover:text-red-600 transition-colors duration-300">O nas</a>
-                    <a href="#uslugi" class="text-gray-300 hover:text-red-600 transition-colors duration-300">Usługi</a>
-                    <a href="#faq" class="text-gray-300 hover:text-red-600 transition-colors duration-300">FAQ</a>
-                    <a href="#opinie" class="text-gray-300 hover:text-red-600 transition-colors duration-300">Opinie</a>
-                    <a href="#kontakt" class="text-gray-300 hover:text-red-600 transition-colors duration-300">Kontakt</a>
+                    <a href="#o-nas" class="text-gray-300 hover:text-red-600 transition-colors duration-300" data-ru="nav-about">O nas</a>
+                    <a href="#uslugi" class="text-gray-300 hover:text-red-600 transition-colors duration-300" data-ru="nav-services">Usługi</a>
+                    <a href="#faq" class="text-gray-300 hover:text-red-600 transition-colors duration-300" data-ru="nav-faq">FAQ</a>
+                    <a href="#opinie" class="text-gray-300 hover:text-red-600 transition-colors duration-300" data-ru="nav-reviews">Opinie</a>
+                    <a href="#kontakt" class="text-gray-300 hover:text-red-600 transition-colors duration-300" data-ru="nav-contact">Kontakt</a>
                     
                     <!-- Language Switch -->
                     <div class="relative ml-4 border-l border-gray-600 pl-4">
-                        <a href="https://autodiament.com/" class="flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 bg-gray-700 hover:bg-gray-600 text-white">
-                            <span class="text-lg">🇩🇪</span>
-                            <span class="text-sm font-semibold">Deutsch</span>
-                        </a>
+                        <button id="lang-dropdown-btn" class="flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-300 bg-gray-700 hover:bg-gray-600 text-white">
+                            <span class="text-lg">🇵🇱</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-xl border border-gray-700 overflow-hidden z-50">
+                            <a href="https://autodiament.com/" class="flex items-center space-x-3 px-4 py-3 hover:bg-gray-700 transition-colors">
+                                <span class="text-xl">🇩🇪</span>
+                                <span class="text-white font-medium">Deutsch</span>
+                            </a>
+                            <button onclick="switchToRussian()" class="w-full flex items-center space-x-3 px-4 py-3 hover:bg-gray-700 transition-colors text-left">
+                                <span class="text-xl">🇷🇺</span>
+                                <span class="text-white font-medium">Русский</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- CTA Button -->
                 <div class="hidden md:block">
                     <a href="tel:506241454" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
-                        <i class="fas fa-phone mr-2"></i>Zadzwoń teraz
+                        <i class="fas fa-phone mr-2"></i><span data-ru="nav-call-now">Zadzwoń teraz</span>
                     </a>
                 </div>
                 
@@ -218,6 +228,37 @@
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed top-20 left-0 right-0 bg-gray-900/98 backdrop-blur-sm border-b border-gray-800 z-40 md:hidden">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col space-y-4">
+                <a href="#o-nas" class="text-gray-300 hover:text-red-600 transition-colors py-2" data-ru="nav-about">O nas</a>
+                <a href="#uslugi" class="text-gray-300 hover:text-red-600 transition-colors py-2" data-ru="nav-services">Usługi</a>
+                <a href="#faq" class="text-gray-300 hover:text-red-600 transition-colors py-2" data-ru="nav-faq">FAQ</a>
+                <a href="#opinie" class="text-gray-300 hover:text-red-600 transition-colors py-2" data-ru="nav-reviews">Opinie</a>
+                <a href="#kontakt" class="text-gray-300 hover:text-red-600 transition-colors py-2" data-ru="nav-contact">Kontakt</a>
+                
+                <div class="border-t border-gray-700 pt-4 mt-2">
+                    <a href="tel:506241454" class="block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg text-center font-semibold mb-3">
+                        <i class="fas fa-phone mr-2"></i><span data-ru="nav-call">Zadzwoń</span>
+                    </a>
+                    
+                    <div class="flex gap-2">
+                        <a href="https://autodiament.com/" class="flex-1 flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-3 rounded-lg">
+                            <span class="text-lg">🇩🇪</span>
+                            <span class="text-sm">Deutsch</span>
+                        </a>
+                        <button onclick="switchToRussian()" class="flex-1 flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-3 rounded-lg">
+                            <span class="text-lg">🇷🇺</span>
+                            <span class="text-sm">Русский</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
@@ -230,24 +271,24 @@
             <div class="mb-8" data-aos="fade-down" data-aos-delay="200">
                 <div class="inline-flex items-center space-x-2 bg-red-600/80 backdrop-blur-sm text-white px-6 py-3 rounded-full shadow-lg border border-red-500">
                     <span class="text-lg">🇩🇪</span>
-                    <span class="font-semibold text-sm">Obsługujemy niemieckich klientów</span>
+                    <span class="font-semibold text-sm" data-ru="hero-badge-german">Obsługujemy niemieckich klientów</span>
                     <span class="text-white/70">•</span>
                     <span class="text-lg">🤝</span>
-                    <span class="font-semibold text-sm">Współpraca z ubezpieczycielami</span>
+                    <span class="font-semibold text-sm" data-ru="hero-badge-insurance">Współpraca z ubezpieczycielami</span>
                 </div>
             </div>
             
             <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">
-                <span>Warsztat samochodowy</span><br>
-                <span class="text-red-600">w Szczecinie</span>
+                <span data-ru="hero-title-1">Warsztat samochodowy</span><br>
+                <span class="text-red-600" data-ru="hero-title-2">w Szczecinie</span>
             </h1>
-            <p class="text-xl sm:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
+            <p class="text-xl sm:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto" data-ru="hero-subtitle">
                 Wieloletnie doświadczenie w naprawach powypadkowych • Mierzyn, ul. Długa 23a • Współpraca z wszystkimi ubezpieczycielami
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a href="#kontakt" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg">
-                    <i class="fas fa-calendar-check mr-2"></i>Umów wizytę online
+                    <i class="fas fa-calendar-check mr-2"></i><span data-ru="hero-cta-appointment">Umów wizytę online</span>
                 </a>
                 <a href="tel:506241454" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-lg text-lg font-bold transition-all duration-300">
                     <i class="fas fa-phone mr-2"></i>506 241 454
@@ -257,20 +298,20 @@
             <!-- Trust Indicators -->
             <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                 <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-4xl font-bold text-red-600">Wieloletnie</div>
-                    <div class="text-sm text-gray-300">doświadczenie</div>
+                    <div class="text-4xl font-bold text-red-600" data-ru="hero-stat-1">Wieloletnie</div>
+                    <div class="text-sm text-gray-300" data-ru="hero-stat-1-desc">doświadczenie</div>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl font-bold text-red-600">1000+</div>
-                    <div class="text-sm text-gray-300">zadowolonych klientów</div>
+                    <div class="text-4xl font-bold text-red-600" data-ru="hero-stat-2">1000+</div>
+                    <div class="text-sm text-gray-300" data-ru="hero-stat-2-desc">zadowolonych klientów</div>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-4xl font-bold text-red-600">100%</div>
-                    <div class="text-sm text-gray-300">profesjonalizm</div>
+                    <div class="text-4xl font-bold text-red-600" data-ru="hero-stat-3">100%</div>
+                    <div class="text-sm text-gray-300" data-ru="hero-stat-3-desc">profesjonalizm</div>
                 </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-4xl font-bold text-red-600">100%</div>
-                    <div class="text-sm text-gray-300">gwarancja jakości</div>
+                    <div class="text-4xl font-bold text-red-600" data-ru="hero-stat-4">100%</div>
+                    <div class="text-sm text-gray-300" data-ru="hero-stat-4-desc">gwarancja jakości</div>
                 </div>
             </div>
         </div>
@@ -397,7 +438,7 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-                    Nasze <span class="text-red-600">usługi</span>
+                    <span data-ru="services-title-1">Nasze</span> <span class="text-red-600" data-ru="services-title-2">usługi</span>
                 </h2>
                 <div class="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
                 <p class="text-gray-400 text-lg max-w-3xl mx-auto">
@@ -411,7 +452,7 @@
                     <div class="bg-red-600 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-car-crash text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Naprawy powypadkowe</h3>
+                    <h3 class="text-2xl font-bold text-white mb-4" data-ru="service-1-title">Naprawy powypadkowe</h3>
                     <p class="text-gray-400 leading-relaxed mb-4">
                         Kompleksowe naprawy po kolizjach i wypadkach. Bezpośrednia współpraca z wszystkimi głównymi ubezpieczycielami.
                     </p>
@@ -436,7 +477,7 @@
                     <div class="bg-red-600 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-spray-can text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Lakiernictwo</h3>
+                    <h3 class="text-2xl font-bold text-white mb-4" data-ru="service-2-title">Lakiernictwo</h3>
                     <p class="text-gray-400 leading-relaxed mb-4">
                         Profesjonalne malowanie. Komputerowy dobór koloru dla wszystkich marek aut.
                     </p>
@@ -458,7 +499,7 @@
                     <div class="bg-red-600 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-wrench text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Blacharstwo</h3>
+                    <h3 class="text-2xl font-bold text-white mb-4" data-ru="service-3-title">Blacharstwo</h3>
                     <p class="text-gray-400 leading-relaxed mb-4">
                         Prostowanie nadwozia, spawanie, wymiana elementów. Przywracamy pierwotny kształt Twojego auta.
                     </p>
@@ -483,7 +524,7 @@
                     <div class="bg-red-600 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-compass-drafting text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Geometria kół</h3>
+                    <h3 class="text-2xl font-bold text-white mb-4" data-ru="service-4-title">Geometria kół</h3>
                     <p class="text-gray-400 leading-relaxed mb-4">
                         Profesjonalne ustawienie geometrii zawieszenia. Precyzyjne pomiary dla wszystkich aut.
                     </p>
@@ -505,7 +546,7 @@
                     <div class="bg-red-600 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-cogs text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Mechanika</h3>
+                    <h3 class="text-2xl font-bold text-white mb-4" data-ru="service-5-title">Mechanika</h3>
                     <p class="text-gray-400 leading-relaxed mb-4">
                         Naprawa zawieszenia, diagnostyka komputerowa, wymiana części eksploatacyjnych.
                     </p>
@@ -530,7 +571,7 @@
                     <div class="bg-red-600 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-language text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Obsługa międzynarodowa</h3>
+                    <h3 class="text-2xl font-bold text-white mb-4" data-ru="service-6-title">Obsługa międzynarodowa</h3>
                     <p class="text-gray-400 leading-relaxed mb-4">
                         Specjalizujemy się w obsłudze klientów z Niemiec. Mówimy po niemiecku i znamy przepisy UE.
                     </p>
@@ -555,7 +596,7 @@
                     <div class="bg-red-600 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-tools text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Usługi spawalnicze</h3>
+                    <h3 class="text-2xl font-bold text-white mb-4" data-ru="service-7-title">Usługi spawalnicze</h3>
                     <p class="text-gray-400 leading-relaxed mb-4">
                         Profesjonalne spawanie konstrukcji stalowych i aluminiowych. Naprawy elementów nośnych nadwozia.
                     </p>
@@ -580,7 +621,7 @@
                     <div class="bg-red-600 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-shield-alt text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Konserwacja pojazdów</h3>
+                    <h3 class="text-2xl font-bold text-white mb-4" data-ru="service-8-title">Konserwacja pojazdów</h3>
                     <p class="text-gray-400 leading-relaxed mb-4">
                         Kompleksowa ochrona nadwozia przed korozją. Konserwacja podwozia i wnęk kołowych.
                     </p>
@@ -607,7 +648,7 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-                    Opinie <span class="text-red-600">klientów</span>
+                    <span data-ru="reviews-title-1">Opinie</span> <span class="text-red-600" data-ru="reviews-title-2">klientów</span>
                 </h2>
                 <div class="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
                 <p class="text-gray-400 text-lg max-w-3xl mx-auto">
@@ -791,7 +832,7 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-                    <span class="text-red-600">Kontakt</span> z warsztatem
+                    <span class="text-red-600" data-ru="contact-title-1">Kontakt</span> <span data-ru="contact-title-2">z warsztatem</span>
                 </h2>
                 <div class="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
                 <p class="text-gray-400 text-lg max-w-3xl mx-auto">
@@ -1014,42 +1055,6 @@
             once: true,
             offset: 100
         });
-
-        // Mobile menu
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-
-        // Scroll to top
-        const scrollTopButton = document.getElementById('scroll-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopButton.classList.remove('opacity-0', 'pointer-events-none');
-            } else {
-                scrollTopButton.classList.add('opacity-0', 'pointer-events-none');
-            }
-        });
-
-        scrollTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
     </script>
 
     <!-- Structured Data - Reviews -->
@@ -1072,6 +1077,16 @@
         },
         "reviewBody": "Profesjonalny warsztat samochodowy w Szczecinie. Świetna obsługa niemieckich klientów, szybkie naprawy, konkurencyjne ceny."
     }
+    </script>
+    <!-- Rosyjskie tłumaczenia -->
+    <script src="js/translations.js"></script>
+    
+    <!-- Automatyczne przywrócenie języka -->
+    <script>
+        // Przywróć język rosyjski jeśli był wybrany wcześniej
+        if (localStorage.getItem('language') === 'ru') {
+            switchToRussian();
+        }
     </script>
 </body>
 </html>
